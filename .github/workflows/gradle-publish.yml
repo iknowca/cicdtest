@@ -49,7 +49,7 @@ jobs:
       run: |
         docker login ghcr.io -u ${{github.actor}} -p ${{secrets.CICDTOKEN}}
         docker buildx create --name arm64builder --use
-        docker buildx build --platform linux/amd54,linux/arm64 -f Dockerfile -t ghcr.io/iknowca/cideTest:latest --push .
+        docker buildx build --platform linux/amd54,linux/arm64 -f Dockerfile -t ghcr.io/iknowca/cidetest:latest --push .
         docker logout
     
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
