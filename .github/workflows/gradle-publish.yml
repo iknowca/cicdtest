@@ -16,8 +16,8 @@ env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/cicdtest
   VERSION: ${{ github.sha }}
   NAME: cicdtest
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{github.repository}}
+  #REGISTRY: ghcr.io
+  #IMAGE_NAME: ${{github.repository}}
 
 jobs:
   build:
@@ -91,7 +91,7 @@ jobs:
             fi
             echo "pass backend-deploy-test/backend-deploy-test-server:latest"
             
-            docker login ghcr.io -u ${{github.actor}} -p ${{secrets.CICDTOKEN}}
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
             docker pull ghcr.io/iknowca/cicdtest:latest
             
             docker image prune -f
