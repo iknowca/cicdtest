@@ -64,7 +64,7 @@ jobs:
         with:
           registry: ghcr.,io
           username: ${{github.actor}}
-          password: ${{secretes.CICDTOKEN}}
+          password: ${{secrets.CICDTOKEN}}
 
         
       - name: Deploy to prod
