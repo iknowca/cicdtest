@@ -47,7 +47,7 @@ jobs:
       
     - name: Docker build & push to prod
       run: |
-        docker login ghcr.io -u ${{github.actor}} -p ${{secrets.CICETOKEN}}
+        docker login ghcr.io -u ${{github.actor}} -p ${{secrets.CICDTOKEN}}
         docker buildx create --name arm64builder --use
         docker buildx build --platform linux/amd54,linux/arm64 -f Dockerfile -t ghcr.io/iknowca/cideTest:latest --push .
         docker logout
