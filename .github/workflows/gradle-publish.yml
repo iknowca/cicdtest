@@ -91,7 +91,7 @@ jobs:
             fi
             echo "pass backend-deploy-test/backend-deploy-test-server:latest"
             
-            echo ${{ secrets.CICDTOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+            echo ${{ secrets.CICDTOKEN}} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
             docker pull ghcr.io/iknowca/cicdtest:latest
             
             docker image prune -f
