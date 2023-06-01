@@ -16,6 +16,8 @@ env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/cicdtest
   VERSION: ${{ github.sha }}
   NAME: cicdtest
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{github.repository}}
 
 jobs:
   build:
