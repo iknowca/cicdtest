@@ -45,7 +45,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build -x test
       
-    -name: Docker build & push to prod
+    - name: Docker build & push to prod
       run: |
         docker login ghcr.io -u ${{github.actor}} -p ${{secrets.CICETOKEN}}
         docker buildx create --name arm64builder --use
